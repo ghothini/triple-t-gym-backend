@@ -2,13 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./Routes/routes')
 const app = express()
-const port = 3000;
+const port = 8082;
 const cors = require('cors');
 const functions = require('firebase-functions');
 // const nodemailer = require('nodemailer')
 
 var corsOptions = {
-    origin: 'http://localhost:4200',
+    origin: 'https://tripletgym-4775e.web.app',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
@@ -21,7 +21,7 @@ app.use(cors(corsOptions))
 app.use(routes)
 
 app.listen(port, () => {
-    console.log('App running on port localhost:3000/');
+    console.log('App running on port localhost:8082/');
 })
 
 exports.api = functions.https.onRequest(app);
